@@ -10,7 +10,10 @@ module.exports = {
 		let nextPath;
 
 		// first we need to get to the point where we're not in the node_modules directory
-		while (currentPath.indexOf('node_modules') > -1) {
+		while (
+			currentPath.indexOf('node_modules') > -1 ||
+			currentPath.indexOf('packages') > -1
+		) {
 			currentPath = path.resolve(currentPath, '..');
 		}
 
@@ -86,7 +89,7 @@ module.exports = {
 	},
 	getMappings () {
 		const project = this.getClosestLikelyReactNativeProjectPath();
-		const packageJson = require(path.join(project, 'package.json'));
+		const packageJson = require(path.join(process.cwd(), 'package.json'));
 
 		if (!packageJson.xcodeSchemes) {
 			throw new Error('Please configure schemes on your project. For more information, see https://github.com/Thinkmill/react-native-schemes-manager/blob/master/README.md');
