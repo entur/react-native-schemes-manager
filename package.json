@@ -37,7 +37,7 @@
     "path": "^0.12.7",
     "plist": "^2.0.1",
     "xcode": "^0.9.1",
-    "yargs": "^6.6.0"
+    "yargs": "^13.1.0"
   },
   "devDependencies": {
     "eslint": "^3.11.0",
